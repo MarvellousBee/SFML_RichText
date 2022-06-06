@@ -3,7 +3,9 @@ A lighter version of this library:
 https://github.com/skyrpex/RichText
 
 Example:
+
 ![](preview.png)  
+
 ```C++
 #include <SFML/Graphics.hpp>
 #include "RichText.hpp"
