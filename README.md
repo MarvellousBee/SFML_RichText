@@ -11,7 +11,7 @@ Example:
 #include "RichText.hpp"
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "sfe::RichText");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Rich::Text");
     window.setFramerateLimit(30);
 
     sf::Font font;
