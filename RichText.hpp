@@ -6,15 +6,13 @@
 
 namespace Rich
 {
-    std::vector<std::string> split_by_newline(const std::string& s)
-    {
+    std::vector<std::string> split_by_newline(const std::string& s){
         std::vector<std::string> output;
         std::string curr{ "" };
         for (const char& c : s)
             if (c != '\n')
                 curr += c;
-            else
-            {
+            else{
                 output.push_back(curr);
                 curr = "";
             }
@@ -36,45 +34,37 @@ namespace Rich
         friend Text& operator<<(Text& os, std::string str);
         friend Text& operator<<(Text& os, const sf::Color& color);
         friend Text& operator<<(Text& os, const sf::Text::Style& style);
-        void setCharacterSize(float size)
-        {
+        void setCharacterSize(float size){
             char_size = size;
         }
-        void setPosition(sf::Vector2f pos)
-        {
+        void setPosition(sf::Vector2f pos){
             starting_pos = pos;
         }
-        void setPosition(float x, float y)
-        {
+        void setPosition(float x, float y){
             setPosition({ x, y });
         }
-        void setFont(sf::Font font)
-        {
+        void setFont(sf::Font font){
             curr_font = font;
         }
-        void clear()
-        {
+        void clear(){
             texts.clear();
             curr_color = sf::Color::White;
             curr_style = sf::Text::Style::Regular;
         }
 
     private:
-        virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
-        {
+        virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const{
             for (auto& i : texts)
                 target.draw(i);
         }
     };
 
-    Text& operator<<(Text& os, std::string string)
-    {
+    Text& operator<<(Text& os, std::string string){
         if (os.texts.size() < 1)
             os.last_text_end = os.starting_pos;
         auto arr{ split_by_newline(string) };
         int i{ 0 };
-        for (std::string& bstr : arr)
-        {
+        for (std::string& bstr : arr){
             sf::Text text;
             text.setString(bstr);
             text.setFont(os.curr_font);
@@ -92,19 +82,16 @@ namespace Rich
         return os;
     }
 
-    Text& operator<<(Text& os, const char& ch)
-    {
+    Text& operator<<(Text& os, const char& ch){
         os << std::string(1, ch);
         return os;
     }
 
-    Text& operator<<(Text& os, const sf::Color& color)
-    {
+    Text& operator<<(Text& os, const sf::Color& color){
         os.curr_color = color;
         return os;
     }
-    Text& operator<<(Text& os, const sf::Text::Style& style)
-    {
+    Text& operator<<(Text& os, const sf::Text::Style& style){
         os.curr_style = style;
         return os;
     }
