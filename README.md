@@ -1,5 +1,5 @@
 # RichText
-A lighter version of this library:
+This library, but lighter and made by me:
 https://github.com/skyrpex/RichText
 
 Example:
