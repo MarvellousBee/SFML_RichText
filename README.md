@@ -17,7 +17,6 @@ int main()
     font.loadFromFile("font.ttf");
 
     Rich::Text text;
-
     text.setFont(font);
     text.setCharacterSize(25);
     text.setPosition(400, 300);
@@ -28,19 +27,15 @@ int main()
         << sf::Color::White << ".\n"
         << sf::Text::Underlined << "It looks good!";
 
-    while (window.isOpen())
-    {
+    while (window.isOpen()){
         sf::Event event;
-        while (window.pollEvent(event))
-        {
+        while (window.pollEvent(event)){
             if (event.type == sf::Event::Closed)
-                window.close();
-
-            
-        }
-        window.clear();
-        window.draw(text);
-        window.display();
+                window.close(); 
+     }
+     window.clear();
+     window.draw(text);
+     window.display();
     }
 }
 ```
