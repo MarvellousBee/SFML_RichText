@@ -8,8 +8,7 @@ Example:
 ```C++
 #include <SFML/Graphics.hpp>
 #include "RichText.hpp"
-int main()
-{
+int main(){
     sf::RenderWindow window(sf::VideoMode(800, 600), "Rich::Text");
     window.setFramerateLimit(30);
 
@@ -22,20 +21,20 @@ int main()
     text.setPosition(400, 300);
 
     text << sf::Text::Bold << sf::Color::Cyan << "This "
-        << sf::Text::Italic << sf::Color::White << "is\nan\n"
-        << sf::Text::Regular << sf::Color::Green << "example"
-        << sf::Color::White << ".\n"
-        << sf::Text::Underlined << "It looks good!";
+         << sf::Text::Italic << sf::Color::White << "is\nan\n"
+         << sf::Text::Regular << sf::Color::Green << "example"
+         << sf::Color::White << ".\n"
+         << sf::Text::Underlined << "It looks good!";
 
     while (window.isOpen()){
         sf::Event event;
         while (window.pollEvent(event)){
             if (event.type == sf::Event::Closed)
                 window.close(); 
-     }
-     window.clear();
-     window.draw(text);
-     window.display();
+        }
+        window.clear();
+        window.draw(text);
+        window.display();
     }
 }
 ```
